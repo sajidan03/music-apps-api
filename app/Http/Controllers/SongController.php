@@ -22,7 +22,7 @@ class SongController extends Controller
             'album' => 'nullable|string',
             'file' => 'nullable|file|mimes:mp3,wav|max:10000',
         ]);
-        if ($request->hashFile('file')) {
+        if ($request->hasFile('file')) {
             $path = $request->file('file')->store('songs', 'public');
             $data['file_url'] = asset('storage/'. $path);
         }
